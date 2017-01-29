@@ -8,15 +8,16 @@ class LinkedList {
     }
 
     append(data) {
+        if(this.length === 0){
+            let node = new Node();
+            this._head = node;
+            this._tail = node;
+        }
+
         this.data = data;
         this.arr.push(this.data);
         this.length++;
-        let node = new Node();
-        if(this.length === 0){
-            this._head = node.next;
-            this._tail = node.prev;
-        }
-
+        return this;
     }
 
     head() {
@@ -67,11 +68,11 @@ class LinkedList {
 
     deleteAt(index) {
         this.index = index;
-        return this.arr.splice(this.index, 1)
+        return this.arr.splice(this.index, 1);
     }
 
     reverse() {
-        this.arr.reverse()
+        this.arr.reverse();
     }
 
     indexOf(data) {
