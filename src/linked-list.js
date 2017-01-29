@@ -11,7 +11,7 @@ class LinkedList {
         this.data = data;
         this.arr.push(this.data);
         this.length++;
-        let node = new Node(this.data, this._head, this._tail);
+        let node = new Node();
         if(this.length === 0){
             this._head = node.prev;
             this._tail = node.next;
@@ -23,25 +23,34 @@ class LinkedList {
     }
 
     tail() {
-        return this.arr[this.arr.length - 1]
+        return this.arr[this.length - 1]
     }
 
     at(index) {
+        this.index = index;
+        return this.arr[this.index];
 
     }
 
     insertAt(index, data) {
-
+         this.index = index;
+         this.data = data;
+         this.arr.splice(this.index, 1, this.data)
     }
 
     isEmpty() {
-        if(this.arr.length === 0){
+        if(this.length === 0){
             return true
+        }
+        else{
+            return false
         }
 
     }
 
-    clear() {}
+    clear() {
+        this.arr.splice(0, this.length)
+    }
 
     deleteAt(index) {
         this.index = index;
@@ -52,7 +61,10 @@ class LinkedList {
         this.arr.reverse()
     }
 
-    indexOf(data) {}
+    indexOf(data) {
+        this.data = data;
+        return this.arr.indexOf(this.data)
+    }
 }
 
 module.exports = LinkedList;
