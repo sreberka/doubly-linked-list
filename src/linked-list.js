@@ -13,17 +13,29 @@ class LinkedList {
         this.length++;
         let node = new Node();
         if(this.length === 0){
-            this._head = node.prev;
-            this._tail = node.next;
+            this._head = node.next;
+            this._tail = node.prev;
         }
+
     }
 
     head() {
-        return this.arr[0]
+        if(this.arr.length === 0){
+            return null
+        }
+        else{
+            return this.arr[0]
+        }
+
     }
 
     tail() {
-        return this.arr[this.length - 1]
+        if(this.arr.length === 0){
+            return null
+        }
+        else{
+            return this.arr[this.length - 1]
+        }
     }
 
     at(index) {
@@ -49,7 +61,8 @@ class LinkedList {
     }
 
     clear() {
-        this.arr.splice(0, this.length)
+         this.arr.splice(0, this.length);
+         this.length = this.arr.length;
     }
 
     deleteAt(index) {
