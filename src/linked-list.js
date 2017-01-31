@@ -13,11 +13,17 @@ class LinkedList {
             this._head = node;
             this._tail = node;
         }
-
-        this.data = data;
-        this.arr.push(this.data);
-        this.length++;
+        else{
+            let node = new Node();
+            node.prev = this._tail;
+            this._tail.next = node;
+            this._tail = node;
+        }
+            this.data = data;
+            this.arr.push(this.data);
+            this.length++;
         return this;
+
     }
 
     head() {
@@ -64,15 +70,19 @@ class LinkedList {
     clear() {
          this.arr.splice(0, this.length);
          this.length = this.arr.length;
+         return this
     }
 
     deleteAt(index) {
         this.index = index;
-        return this.arr.splice(this.index, 1);
+        this.arr.splice(this.index, 1);
+        return this
     }
 
     reverse() {
         this.arr.reverse();
+        return this
+
     }
 
     indexOf(data) {
