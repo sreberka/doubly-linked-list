@@ -8,15 +8,9 @@ class LinkedList {
     }
 
     append(data) {
+        let node = new Node();
         if(this.length === 0){
-            let node = new Node();
             this._head = node;
-            this._tail = node;
-        }
-        else{
-            let node = new Node();
-            node.prev = this._tail;
-            this._tail.next = node;
             this._tail = node;
         }
             this.data = data;
@@ -82,7 +76,6 @@ class LinkedList {
     reverse() {
         this.arr.reverse();
         return this
-
     }
 
     indexOf(data) {
